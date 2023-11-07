@@ -1,5 +1,9 @@
-import S from "./styled.ts";
+import React from "react";
 
-export default function Home() {
-  return <S.Container>Homepage</S.Container>;
-}
+import { HomePage } from "components";
+
+const Home = () => {
+  return <HomePage />;
+};
+
+export default Home;
