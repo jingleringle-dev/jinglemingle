@@ -4,6 +4,7 @@ export const colors = {
   main_brown: "#514439",
   main_kaki: "#6B623F",
   main_green: "#1E403F",
+  white: "#ffffff",
 };
 export const fonts = {};
 
