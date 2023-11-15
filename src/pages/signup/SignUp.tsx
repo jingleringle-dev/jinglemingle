@@ -37,27 +37,38 @@ const Signup = () => {
 
   return (
     <S.SignUpWrapper onSubmit={handleSubmit(handleSignUp)}>
-      <div>
+      <S.Title>타이틀!!!!!</S.Title>
+      <S.ContentWrapper>
         <p>이메일</p>
-        <input {...register("email", { required: "필수 입력" })} />
-        <p>{errors.email?.message}</p>
-      </div>
-      <div>
+        <S.InputWrapper hasError={!!errors.email?.message}>
+          <input {...register("email", { required: "필수 입력" })} />
+          {errors.email?.message && <span>{errors.email?.message}</span>}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.ContentWrapper>
         <p>닉네임</p>
-        <input {...register("nickname", { required: "필수 입력" })} />
-        <p>{errors.nickname?.message}</p>
-      </div>
-      <div>
+        <S.InputWrapper hasError={!!errors.nickname?.message}>
+          <input {...register("nickname", { required: "필수 입력" })} />
+          {errors.nickname?.message && <span>{errors.nickname?.message}</span>}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.ContentWrapper>
         <p>비밀번호</p>
-        <input {...register("password", { required: "필수 입력" })} />
-        <p>{errors.password?.message}</p>
-      </div>
-      <div>
+        <S.InputWrapper hasError={!!errors.password?.message}>
+          <input {...register("password", { required: "필수 입력" })} />
+          {errors.password?.message && <span>{errors.password?.message}</span>}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.ContentWrapper>
         <p>비밀번호 확인</p>
-        <input {...register("passwordCheck", { required: "필수 입력" })} />
-        <p>{errors.passwordCheck?.message}</p>
-      </div>
-      <button>회원가입</button>
+        <S.InputWrapper hasError={!!errors.passwordCheck?.message}>
+          <input {...register("passwordCheck", { required: "필수 입력" })} />
+          {errors.passwordCheck?.message && (
+            <span>{errors.passwordCheck?.message}</span>
+          )}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.SignupBtn>회원가입</S.SignupBtn>
     </S.SignUpWrapper>
   );
 };

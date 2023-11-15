@@ -1,9 +1,13 @@
 import React from "react";
-
-import { HomePage } from "components";
+import * as S from "./styled";
 
 const Home = () => {
-  return <HomePage />;
+  return (
+    <S.HomWrapper>
+      <S.LoginLink to="login">로그인</S.LoginLink>
+      <S.LoginLink to="signup">회원가입</S.LoginLink>
+    </S.HomWrapper>
+  );
 };
 
 export default Home;

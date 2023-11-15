@@ -28,18 +28,23 @@ const Login = () => {
 
   return (
     <S.LoginWrapper onSubmit={handleSubmit(handleLogin)}>
-      <div>
+      <S.Title>타이틀!</S.Title>
+      <S.ContentWrapper>
         <p>이메일</p>
-        <input {...register("email", { required: "필수 입력" })} />
-        <p>{errors.email?.message}</p>
-      </div>
-      <div>
+        <S.InputWrapper hasError={!!errors.email?.message}>
+          <input {...register("email", { required: "필수 입력" })} />
+          {errors.email?.message && <span>{errors.email?.message}</span>}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.ContentWrapper>
         <p>비밀번호</p>
-        <input {...register("password", { required: "필수 입력" })} />
-        <p>{errors.password?.message}</p>
-      </div>
-      <button>로그인</button>
-      <button type="button">카카오톡 로그인</button>
+        <S.InputWrapper hasError={!!errors.password?.message}>
+          <input {...register("password", { required: "필수 입력" })} />
+          {errors.password?.message && <span>{errors.password?.message}</span>}
+        </S.InputWrapper>
+      </S.ContentWrapper>
+      <S.LoginBtn>로그인</S.LoginBtn>
+      <S.KakaoLoginBtn type="button">카카오톡 로그인</S.KakaoLoginBtn>
     </S.LoginWrapper>
   );
 };
