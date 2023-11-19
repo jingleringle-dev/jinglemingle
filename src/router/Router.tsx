@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Home, Login, Signup } from "pages";
+import { Home, Login, Signup, RoomPage } from "pages";
 import Layout from "../layout/Layout";
+import AddGiftPage from "pages/addGift/AddGiftPage";
 
 export default function Router() {
   return (
@@ -12,6 +13,8 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="/room/:id" element={<RoomPage />} />
+          <Route path="/room/add/:id" element={<AddGiftPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
