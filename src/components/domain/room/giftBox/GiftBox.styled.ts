@@ -6,7 +6,6 @@ export const Container = styled.li`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
 `;
 
 export const Nickname = styled.div`
@@ -18,27 +17,23 @@ export const Nickname = styled.div`
   align-items: center;
 `;
 
-export const giftbox = (
-  boxColor: string,
-  lineColor: string,
-  width: string,
-  height: string
-) => css`
-  width: ${width};
-  height: ${height};
+export const Giftbox = styled(GiftBoxIcon)<{
+  boxcolor: string;
+  linecolor: string;
+}>`
+  ${({ boxcolor, linecolor }) => `
 
-  background-color: red;
 
   & > g {
     path:first-of-type,
     path:nth-of-type(1) {
-      fill: ${boxColor};
+      fill: ${boxcolor};
     }
 
     path:nth-of-type(3),
     path:nth-of-type(4),
     path:nth-of-type(5) {
-      fill: ${lineColor};
+      fill: ${linecolor};
     }
-  }
+  }`}
 `;

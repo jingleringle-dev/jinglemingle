@@ -2,14 +2,14 @@ import React, { Dispatch, SetStateAction, useContext, useState } from "react";
 import { createContext } from "react";
 
 type GiftData = {
-  boxColor: string;
-  lineColor: string;
+  boxcolor: string;
+  linecolor: string;
   message: string;
   writer: string;
 };
 const initialData = {
-  boxColor: "",
-  lineColor: "",
+  boxcolor: "",
+  linecolor: "",
   message: "",
   writer: "",
 };

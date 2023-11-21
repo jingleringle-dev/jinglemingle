@@ -1,26 +1,29 @@
 import React from "react";
 import * as S from "./GiftBox.styled";
-import { GiftBoxIcon } from "assets";
 
-type Props = {
-  boxColor: string;
-  lineColor: string;
+interface Props {
+  boxcolor: string;
+  linecolor: string;
   nickname?: string;
-  width: string;
-  height: string;
-};
+  width: number;
+  height: number;
+}
 
 export default function GiftBox({
-  boxColor,
-  lineColor,
+  boxcolor,
+  linecolor,
   nickname,
   width,
   height,
 }: Props) {
   return (
     <S.Container>
-      <GiftBoxIcon css={() => S.giftbox(boxColor, lineColor, width, height)} />
-      {/* css 설정 수정 필요 -> 화면 상에 에러는 발생하지 않으나 console에 에러발생 */}
+      <S.Giftbox
+        width={width}
+        height={height}
+        boxcolor={boxcolor}
+        linecolor={linecolor}
+      />
       {nickname && <S.Nickname>{nickname}</S.Nickname>}
     </S.Container>
   );
