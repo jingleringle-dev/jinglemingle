@@ -1,8 +1,6 @@
 import React from "react";
 import * as S from "./Room.styled";
-import { RoomHeader } from "./header";
-import { TopMenu } from "./topMenu";
-import { GiftList } from "./giftList";
+import { RoomHeader, TopMenu, GiftList } from "../room";
 
 import Button from "components/ui/button/Button";
 import { RoomLayout } from "components/layout/roomLayout";

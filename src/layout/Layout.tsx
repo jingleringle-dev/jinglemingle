@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import S from "./styled.ts";
+import S from "./Layout.styled.ts";
 
 export default function Layout() {
   return (

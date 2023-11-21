@@ -29,8 +29,8 @@ export default function ColorForm({ setToggle }: Props) {
         <GiftBox
           boxColor={boxColor}
           lineColor={lineColor}
-          width="180"
-          height="160"
+          width="180px"
+          height="160px"
         />
         <S.Text>색상을 골라주세요!</S.Text>
         <S.InputWrap>

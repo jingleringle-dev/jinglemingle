@@ -1,6 +1,7 @@
-import GiftForm from "components/domain/giftForm/GiftForm";
-import { GiftFormProvider } from "contexts/GiftFormContext";
 import React from "react";
+
+import { GiftForm } from "components";
+import { GiftFormProvider } from "contexts/GiftFormContext";
 
 export default function AddGiftPage() {
   return (
