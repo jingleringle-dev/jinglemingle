@@ -14,7 +14,7 @@ export const signupAPI = async (req: SignupType) => {
 };
 
 export const loginAPI = async (req: loginType) => {
-  const { data } = await ax.post("/login", {
+  const data = await ax.post("/login", {
     email: req.email,
     password: req.password,
   });

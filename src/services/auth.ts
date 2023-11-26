@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 
 import { loginAPI, signupAPI } from "apis";
+import { setCookies } from "utils";
 import type { SignupType, loginType } from "types";
 
 export const useSignup = () => {
@@ -11,8 +12,7 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: (req: loginType) => loginAPI(req),
     onSuccess: (res) => {
-      localStorage.setItem("accessToken", res.accessToken);
-      localStorage.setItem("refreshToken", res.refreshToken);
+      setCookies("COOKIES", res.headers);
     },
     onError: (err: any) => {
       //NOTE: 타입 수정 예정
