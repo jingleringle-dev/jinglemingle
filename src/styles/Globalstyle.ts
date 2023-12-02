@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+import "./font.css";
+
 const GlobalStyles = createGlobalStyle`
     // 적용시킬 css 입력
     a{
@@ -15,7 +17,10 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 16px;
+        font-family: "SUITE-Regular", sans-serif;;
         vertical-align: baseline;
+
+
     }
     body{
         line-height: 1;

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const HomWrapper = styled.section`
+export const HomWrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     display: flex;

@@ -1,7 +1,7 @@
 import { Cookies } from "react-cookie";
 import type { AxiosResponseHeaders, RawAxiosResponseHeaders } from "axios";
 
-const cookies = new Cookies();
+export const cookies = new Cookies();
 
 export const setCookies = (
   name: string,

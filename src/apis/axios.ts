@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { getCookies } from "utils";
+import { cookies, getCookies } from "utils";
 
 const instance: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_AXIOS_API,
@@ -12,7 +12,7 @@ const createInstance = (): AxiosInstance => {
 const setInterceptors = (instance: AxiosInstance): AxiosInstance => {
   instance.interceptors.request.use(
     (config) => {
-      const accessToken = getCookies("access_token");
+      const accessToken = cookies.get("access_token");
 
       if (accessToken) {
         config.headers["Authorization"] = accessToken;
