@@ -12,4 +12,5 @@ export interface loginType {
 
 export interface selectRoomType {
   roomTemplateId: number;
+  userId: string;
 }

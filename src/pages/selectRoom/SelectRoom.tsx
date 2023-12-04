@@ -26,13 +26,14 @@ const SelectRoom = () => {
   };
 
   const handleSubmitRoom = () => {
-    const selectedRoom = rooms[idx].split("/").reverse()[0];
-
     selectRoomMutate(
-      { roomTemplateId: idx },
+      {
+        roomTemplateId: idx,
+        userId: localStorage.getItem("userId")!,
+      },
       {
         onSuccess: (res) => {
-          const id = res.data.data.userId;
+          const id = res.config.data.userId;
 
           navigate(`/room/${id}`);
         },

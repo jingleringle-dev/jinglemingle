@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from "axios";
+import axios, { AxiosInstance, InternalAxiosRequestConfig } from "axios";
 import { cookies, getCookies } from "utils";
 
 const instance: AxiosInstance = axios.create({
@@ -11,12 +11,13 @@ const createInstance = (): AxiosInstance => {
 
 const setInterceptors = (instance: AxiosInstance): AxiosInstance => {
   instance.interceptors.request.use(
-    (config) => {
-      const accessToken = cookies.get("access_token");
+    (config: InternalAxiosRequestConfig) => {
+      const access_token = localStorage.getItem("access_token");
+      const refresh_token = localStorage.getItem("refresh_token");
 
-      if (accessToken) {
-        config.headers["Authorization"] = accessToken;
-      }
+      config.headers["access_token"] = access_token;
+      config.headers["refresh_token"] = refresh_token;
+
       return config;
     },
     (error) => Promise.reject(error)

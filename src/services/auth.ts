@@ -9,7 +9,6 @@ export const useSignup = () => {
     mutationFn: (req: SignupType) => signupAPI(req),
     onSuccess: (res) => {
       setCookies("COOKIES", res.headers);
-      console.log(res);
     },
     onError: (err: any) => {
       //NOTE: 타입 수정 예정
@@ -25,7 +24,8 @@ export const useLogin = () => {
       setCookies("COOKIES", res.headers);
       console.log(res); //TODO: 확인후 필요한 cookies만 남길것
       localStorage.setItem("access_token", res.headers.access_token);
-      localStorage.setItem("refreshToken", res.headers.refresh_token);
+      localStorage.setItem("refresh_token", res.headers.refresh_token);
+      localStorage.setItem("userId", res.data.data.userId);
     },
     onError: (err: any) => {
       //NOTE: 타입 수정 예정

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import { useSignup } from "services";
+import { useLogin, useSignup } from "services";
 import type { SignupType } from "types";
 import * as S from "./SignUp.styled";
 
@@ -24,6 +24,7 @@ const Signup = () => {
   });
 
   const { mutate: signupMutate } = useSignup();
+  const { mutate: loginMutate } = useLogin();
 
   const handleSignUp = (data: SignupType) => {
     const req = {
@@ -34,7 +35,10 @@ const Signup = () => {
     };
 
     signupMutate(req, {
-      onSuccess: () => navigate("/select"),
+      onSuccess: () => {
+        loginMutate({ email: req.email, password: req.password });
+        navigate("/select");
+      },
     });
   };
 

@@ -24,7 +24,8 @@ export const loginAPI = async (req: loginType) => {
 
 export const selectRoomAPI = async (req: selectRoomType) => {
   const data = await ax.patch(
-    `/room/template?roomTemplateId=${req.roomTemplateId}`
+    `/room/template?roomTemplateId=${req.roomTemplateId}`,
+    { userId: req.userId }
   );
 
   return data;
