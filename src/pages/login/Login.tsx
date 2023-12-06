@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import { AccountInput } from "components";
 import { useLogin } from "services";
 import type { loginType } from "types";
 import * as S from "./Login.styled";
@@ -9,7 +10,6 @@ import * as S from "./Login.styled";
 const Login = () => {
   const navigate = useNavigate();
   const {
-    watch,
     formState: { errors },
     register,
     handleSubmit,
@@ -37,21 +37,22 @@ const Login = () => {
       <S.Title>타이틀!</S.Title>
       <S.ContentWrapper>
         <p>이메일</p>
-        <S.InputWrapper $hasError={!!errors.email?.message}>
-          <input
-            {...register("email", { required: "이메일을 입력해주세요" })}
-          />
-          {errors.email?.message && <span>{errors.email?.message}</span>}
-        </S.InputWrapper>
+        <AccountInput
+          $hasError={!!errors.email?.message}
+          errorMsg={errors.email?.message}
+          register={register("email", { required: "이메일을 입력해주세요" })}
+        />
       </S.ContentWrapper>
       <S.ContentWrapper>
         <p>비밀번호</p>
-        <S.InputWrapper $hasError={!!errors.password?.message}>
-          <input
-            {...register("password", { required: "비밀번호를 입력해주세요" })}
-          />
-          {errors.password?.message && <span>{errors.password?.message}</span>}
-        </S.InputWrapper>
+        <AccountInput
+          type="password"
+          $hasError={!!errors.password?.message}
+          errorMsg={errors.password?.message}
+          register={register("password", {
+            required: "비밀번호를 입력해주세요",
+          })}
+        />
       </S.ContentWrapper>
       <S.ButtonWrapper>
         <S.LoginBtn disabled={!!Object.keys(errors).length}>로그인</S.LoginBtn>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 export const Title = styled.h2`
@@ -29,40 +30,36 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const InputWrapper = styled.div<{ $hasError: boolean }>`
-  ${({ theme, $hasError }) => css`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 5px;
-    margin-bottom: ${$hasError ? "10px" : "12px"};
-
-    & > input {
-      width: 180px;
-      height: 36px;
-      border: ${$hasError && `1px solid ${theme.colors.main_red}`};
-    }
-
-    & > span {
-      height: fit-content;
-      color: ${$hasError && theme.colors.main_red};
-      font-size: 0.7em;
-    }
-  `}
-`;
-
 export const SignupBtn = styled.button`
   ${({ theme }) => css`
-    width: 280px;
     height: 36px;
-    margin-top: 50px;
     background-color: ${theme.colors.main_red};
     color: ${theme.colors.white};
 
     &:disabled {
-      margin-top: 10px;
       background-color: ${theme.colors.disabled_red};
       cursor: not-allowed;
     }
   `}
+`;
+
+export const MainLink = styled(Link)`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    margin-top: 10px;
+    font-size: 0.8em;
+    background-color: ${theme.colors.main_brown};
+    color: ${theme.colors.white};
+  `}
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20px;
+  width: 280px;
 `;

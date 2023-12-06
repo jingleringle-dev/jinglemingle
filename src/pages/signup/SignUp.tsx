@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
+import { AccountInput } from "components";
 import { useLogin, useSignup } from "services";
 import type { SignupType } from "types";
 import * as S from "./SignUp.styled";
@@ -47,47 +48,48 @@ const Signup = () => {
       <S.Title>타이틀!!!!!</S.Title>
       <S.ContentWrapper>
         <p>이메일</p>
-        <S.InputWrapper $hasError={!!errors.email?.message}>
-          <input
-            {...register("email", { required: "이메일을 입력해주세요" })}
-          />
-          {errors.email?.message && <span>{errors.email?.message}</span>}
-        </S.InputWrapper>
+        <AccountInput
+          $hasError={!!errors.email?.message}
+          errorMsg={errors.email?.message}
+          register={register("email", { required: "이메일을 입력해주세요" })}
+        />
       </S.ContentWrapper>
       <S.ContentWrapper>
         <p>닉네임</p>
-        <S.InputWrapper $hasError={!!errors.nickname?.message}>
-          <input
-            {...register("nickname", { required: "닉네임을 작성해주세요" })}
-          />
-          {errors.nickname?.message && <span>{errors.nickname?.message}</span>}
-        </S.InputWrapper>
+        <AccountInput
+          $hasError={!!errors.nickname?.message}
+          errorMsg={errors.nickname?.message}
+          register={register("nickname", { required: "닉네임을 작성해주세요" })}
+        />
       </S.ContentWrapper>
       <S.ContentWrapper>
         <p>비밀번호</p>
-        <S.InputWrapper $hasError={!!errors.password?.message}>
-          <input
-            {...register("password", { required: "비밀번호를 입력해주세요" })}
-          />
-          {errors.password?.message && <span>{errors.password?.message}</span>}
-        </S.InputWrapper>
+        <AccountInput
+          type="password"
+          $hasError={!!errors.password?.message}
+          errorMsg={errors.password?.message}
+          register={register("password", {
+            required: "비밀번호를 입력해주세요",
+          })}
+        />
       </S.ContentWrapper>
       <S.ContentWrapper>
         <p>비밀번호 확인</p>
-        <S.InputWrapper $hasError={!!errors.passwordCheck?.message}>
-          <input
-            {...register("passwordCheck", {
-              required: "비밀번호를 확인해주세요",
-            })}
-          />
-          {errors.passwordCheck?.message && (
-            <span>{errors.passwordCheck?.message}</span>
-          )}
-        </S.InputWrapper>
+        <AccountInput
+          type="password"
+          $hasError={!!errors.passwordCheck?.message}
+          errorMsg={errors.passwordCheck?.message}
+          register={register("passwordCheck", {
+            required: "비밀번호를 확인해주세요",
+          })}
+        />
       </S.ContentWrapper>
-      <S.SignupBtn disabled={!!Object.keys(errors).length}>
-        방 선택하러 가기
-      </S.SignupBtn>
+      <S.ButtonWrapper>
+        <S.SignupBtn disabled={!!Object.keys(errors).length}>
+          방 선택하러 가기
+        </S.SignupBtn>
+        <S.MainLink to="/">메인 화면으로 이동</S.MainLink>
+      </S.ButtonWrapper>
     </form>
   );
 };

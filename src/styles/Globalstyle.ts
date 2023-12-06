@@ -34,6 +34,9 @@ const GlobalStyles = createGlobalStyle`
         background: transparent;
         cursor: pointer;
     }
+    input{
+        outline: none;   
+    }
  
 `;
 

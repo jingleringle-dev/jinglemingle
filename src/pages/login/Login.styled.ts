@@ -30,28 +30,6 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const InputWrapper = styled.div<{ $hasError: boolean }>`
-  ${({ theme, $hasError }) => css`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    row-gap: 5px;
-    margin-bottom: ${$hasError ? "12px" : "7px"};
-
-    & > input {
-      width: 180px;
-      height: 36px;
-      border: ${$hasError && `1px solid ${theme.colors.main_red}`};
-    }
-
-    & > span {
-      height: fit-content;
-      color: ${$hasError && theme.colors.main_red};
-      font-size: 0.7em;
-    }
-  `}
-`;
-
 export const LoginBtn = styled.button`
   ${({ theme }) => css`
     width: 280px;
@@ -61,7 +39,6 @@ export const LoginBtn = styled.button`
     color: ${theme.colors.white};
 
     &:disabled {
-      margin-top: 10px;
       background-color: ${theme.colors.disabled_red};
       cursor: not-allowed;
     }
@@ -89,5 +66,5 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 50px;
+  margin-top: 20px;
 `;
