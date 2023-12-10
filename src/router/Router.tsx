@@ -12,7 +12,7 @@ export default function Router() {
       <Routes>
         <Route element={<PublicLayout />}>
           <Route path="login" element={<Login />} />
-          <Route path="/kakao" element={<KakaoCallback />} />
+          <Route path="/kakao/callback" element={<KakaoCallback />} />
           <Route path="signup" element={<Signup />} />
           <Route path="select" element={<SelectRoom />} />
         </Route>

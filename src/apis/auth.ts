@@ -1,6 +1,11 @@
 import { ax } from "./axios";
 
-import type { SignupType, loginType, selectRoomType } from "types";
+import type {
+  SignupType,
+  kakaoLoginType,
+  loginType,
+  selectRoomType,
+} from "types";
 
 export const signupAPI = async (req: SignupType) => {
   const { data } = await ax.post("/signup", {
@@ -27,6 +32,12 @@ export const selectRoomAPI = async (req: selectRoomType) => {
     `/room/template?roomTemplateId=${req.roomTemplateId}`,
     { userId: req.userId }
   );
+
+  return data;
+};
+
+export const kakaoLoginAPI = async (req: kakaoLoginType) => {
+  const data = await ax.get(`/kakao/callback`, { params: req });
 
   return data;
 };

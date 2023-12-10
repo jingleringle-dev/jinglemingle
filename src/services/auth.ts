@@ -1,8 +1,13 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { loginAPI, oAuthAPI, selectRoomAPI, signupAPI } from "apis";
+import { kakaoLoginAPI, loginAPI, selectRoomAPI, signupAPI } from "apis";
 import { cookies, setCookies } from "utils";
-import type { SignupType, loginType, selectRoomType } from "types";
+import type {
+  SignupType,
+  kakaoLoginType,
+  loginType,
+  selectRoomType,
+} from "types";
 
 export const useSignup = () => {
   return useMutation({
@@ -31,6 +36,13 @@ export const useLogin = () => {
       //NOTE: 타입 수정 예정
       console.log(err.response.data.message);
     },
+  });
+};
+
+export const useKaKaoLogin = (req: kakaoLoginType) => {
+  return useQuery({
+    queryKey: ["login"],
+    queryFn: () => kakaoLoginAPI(req),
   });
 };
 

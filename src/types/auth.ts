@@ -14,3 +14,7 @@ export interface selectRoomType {
   roomTemplateId: number;
   userId: string;
 }
+
+export interface kakaoLoginType {
+  code: string;
+}
