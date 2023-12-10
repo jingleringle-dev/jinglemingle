@@ -12,14 +12,14 @@ type Props = {
 const TOGGLE_MESSAGE_FORM = 2;
 
 export default function ColorForm({ setToggle }: Props) {
-  const [boxcolor, setBoxColor] = useState("#2c906a");
-  const [linecolor, setLineColor] = useState("#ec4122");
+  const [boxColor, setBoxColor] = useState("#2c906a");
+  const [lineColor, setLineColor] = useState("#ec4122");
 
   const { giftData, setGiftData } = useGiftForm();
 
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-    setGiftData({ ...giftData, boxcolor, linecolor });
+    setGiftData({ ...giftData, boxColor, lineColor });
     setToggle(TOGGLE_MESSAGE_FORM);
   };
 
@@ -27,8 +27,8 @@ export default function ColorForm({ setToggle }: Props) {
     <S.Container onSubmit={onSubmitHandler}>
       <S.GiftBoxInputWrap>
         <GiftBox
-          boxcolor={boxcolor}
-          linecolor={linecolor}
+          boxColor={boxColor}
+          lineColor={lineColor}
           width={500}
           height={160}
         />
@@ -36,12 +36,12 @@ export default function ColorForm({ setToggle }: Props) {
         <S.InputWrap>
           <ColorInput
             label="상자 색상"
-            value={boxcolor}
+            value={boxColor}
             setColor={setBoxColor}
           />
           <ColorInput
             label="끈 색상"
-            value={linecolor}
+            value={lineColor}
             setColor={setLineColor}
           />
         </S.InputWrap>

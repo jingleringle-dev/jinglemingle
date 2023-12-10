@@ -2,27 +2,29 @@ import React from "react";
 import * as S from "./GiftBox.styled";
 
 interface Props {
-  boxcolor: string;
-  linecolor: string;
+  boxColor: string;
+  lineColor: string;
   nickname?: string;
   width: number;
   height: number;
+  onClick: () => void;
 }
-
 export default function GiftBox({
-  boxcolor,
-  linecolor,
+  boxColor,
+  lineColor,
   nickname,
   width,
   height,
+  onClick,
 }: Props) {
   return (
     <S.Container>
       <S.Giftbox
+        onClick={onClick}
         width={width}
         height={height}
-        boxcolor={boxcolor}
-        linecolor={linecolor}
+        $boxColor={boxColor}
+        $lineColor={lineColor}
       />
       {nickname && <S.Nickname>{nickname}</S.Nickname>}
     </S.Container>

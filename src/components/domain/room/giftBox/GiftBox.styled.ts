@@ -1,5 +1,5 @@
 import { GiftBoxIcon } from "assets";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.li`
   display: flex;
@@ -9,31 +9,32 @@ export const Container = styled.li`
 `;
 
 export const Nickname = styled.div`
-  width: 70px;
-  height: 20px;
-  background-color: white;
+  background-color: black;
+  color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  padding: 3px 3px;
 `;
 
 export const Giftbox = styled(GiftBoxIcon)<{
-  boxcolor: string;
-  linecolor: string;
+  $boxColor: string;
+  $lineColor: string;
 }>`
-  ${({ boxcolor, linecolor }) => `
+  ${({ $boxColor, $lineColor }) => `
 
 
   & > g {
     path:first-of-type,
     path:nth-of-type(1) {
-      fill: ${boxcolor};
+      fill: ${$boxColor};
     }
 
     path:nth-of-type(3),
     path:nth-of-type(4),
     path:nth-of-type(5) {
-      fill: ${linecolor};
+      fill: ${$lineColor};
     }
   }`}
 `;

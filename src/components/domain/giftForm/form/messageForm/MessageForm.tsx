@@ -2,17 +2,28 @@ import React, { ChangeEvent, FormEvent } from "react";
 import * as S from "./MessageForm.styled";
 import { useGiftForm } from "contexts/GiftFormContext";
 import Button from "components/ui/button/Button";
+import { useAddMessage } from "services/room";
+import { useNavigate, useParams } from "react-router-dom";
 
 const MAX_NICKNAME_LENGTH = 8;
 const MAX_TEXT_LENGTH = 400;
 
 export default function MessageForm() {
+  const { id } = useParams() as { id: string };
   const { giftData, setGiftData } = useGiftForm();
+  const navigate = useNavigate();
+  const { mutate: addMessageMutate } = useAddMessage();
 
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
-    /* 여기에 서버 데이터 전송 로직 작성 */
-    console.log(giftData);
+    if (giftData.message === "" || giftData.writer === "") {
+      alert("공백으로 둘 수 없습니다.");
+      return null;
+    }
+    addMessageMutate(
+      { userId: id, messageData: giftData },
+      { onSuccess: () => navigate(`/room/${id}`) }
+    );
   };
 
   const onChangeTextHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {

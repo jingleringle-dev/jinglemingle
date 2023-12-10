@@ -1,14 +1,14 @@
 import styled from "styled-components";
+import { colors } from "styles/theme";
 
 export const Button = styled.button<{
-  $green?: boolean;
+  $color: keyof typeof colors;
   $width: string;
   $height: string;
 }>`
   width: ${({ $width }) => $width};
   height: ${({ $height }) => $height};
-  background-color: ${(props) =>
-    props.$green ? props.theme.colors.main_green : props.theme.colors.main_red};
+  background-color: ${({ $color, theme }) => theme.colors[$color]};
   color: white;
   margin: 0 auto;
 `;

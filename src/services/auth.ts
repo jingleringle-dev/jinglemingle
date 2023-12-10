@@ -1,6 +1,6 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { loginAPI, selectRoomAPI, signupAPI } from "apis";
+import { loginAPI, oAuthAPI, selectRoomAPI, signupAPI } from "apis";
 import { cookies, setCookies } from "utils";
 import type { SignupType, loginType, selectRoomType } from "types";
 

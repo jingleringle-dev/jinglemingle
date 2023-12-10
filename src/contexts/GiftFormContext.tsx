@@ -1,21 +1,16 @@
 import React, { Dispatch, SetStateAction, useContext, useState } from "react";
 import { createContext } from "react";
+import { MessageType } from "types/room";
 
-type GiftData = {
-  boxcolor: string;
-  linecolor: string;
-  message: string;
-  writer: string;
-};
 const initialData = {
-  boxcolor: "",
-  linecolor: "",
+  boxColor: "",
+  lineColor: "",
   message: "",
   writer: "",
 };
 type GiftContext = {
-  giftData: GiftData;
-  setGiftData: Dispatch<SetStateAction<GiftData>>;
+  giftData: MessageType;
+  setGiftData: Dispatch<SetStateAction<MessageType>>;
 };
 
 const GiftFormContext = createContext<GiftContext>({
@@ -28,7 +23,7 @@ type Props = {
 };
 
 export const GiftFormProvider = ({ children }: Props) => {
-  const [giftData, setGiftData] = useState<GiftData>(initialData);
+  const [giftData, setGiftData] = useState<MessageType>(initialData);
 
   return (
     <GiftFormContext.Provider value={{ giftData, setGiftData }}>

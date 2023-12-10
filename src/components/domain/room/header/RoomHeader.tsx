@@ -1,6 +1,9 @@
 import React from "react";
 import * as S from "./RoomHeader.styled";
 
-export default function RoomHeader() {
-  return <S.Header>현징의 방</S.Header>;
+interface Props {
+  nickname: string;
+}
+export default function RoomHeader({ nickname }: Props) {
+  return <S.Header>{`${nickname}의 방`}</S.Header>;
 }
