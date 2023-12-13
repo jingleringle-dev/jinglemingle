@@ -70,6 +70,9 @@ export const useChangeNickname = () => {
     mutationFn: (req: string) => changeNicknameAPI(req),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["messageList"] });
+    },
+  });
+};
 
 export const useSendVerifyEmail = () => {
   return useMutation({
