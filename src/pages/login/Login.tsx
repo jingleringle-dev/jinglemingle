@@ -30,27 +30,20 @@ const Login = () => {
     });
   };
 
-  const loginHandler = () => {
-    const KAKAO_REST_API_KEY = import.meta.env.VITE_REST_API_KEY;
-    const KAKAO_REDIRECT_URI = import.meta.env.VITE_REDIRECT_KEY;
-
-    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
-  };
-
   return (
     <form onSubmit={handleSubmit(handleLogin)}>
-      <S.Title>타이틀!</S.Title>
+      <S.Title>징글 밍글</S.Title>
       <S.ContentWrapper>
-        <p>이메일</p>
         <AccountInput
+          label="이메일"
           $hasError={!!errors.email?.message}
           errorMsg={errors.email?.message}
           register={register("email", { required: "이메일을 입력해주세요" })}
         />
       </S.ContentWrapper>
       <S.ContentWrapper>
-        <p>비밀번호</p>
         <AccountInput
+          label="비밀번호"
           type="password"
           $hasError={!!errors.password?.message}
           errorMsg={errors.password?.message}
@@ -61,9 +54,9 @@ const Login = () => {
       </S.ContentWrapper>
       <S.ButtonWrapper>
         <S.LoginBtn disabled={!!Object.keys(errors).length}>로그인</S.LoginBtn>
-        <S.KakaoLoginBtn type="button" onClick={loginHandler}>
-          카카오톡 로그인
-        </S.KakaoLoginBtn>
+        <S.SignupLink to="/changePassword">
+          비밀번호를 까먹었어요 :(
+        </S.SignupLink>
         <S.SignupLink to="/signup">아직 계정이 없어요!</S.SignupLink>
       </S.ButtonWrapper>
     </form>

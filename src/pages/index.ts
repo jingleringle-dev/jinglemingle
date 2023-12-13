@@ -1,4 +1,5 @@
 export { default as Home } from "./home/Home";
+export { default as ChangePassword } from "./changePassword/ChangePassword";
 export { default as Login } from "./login/Login";
 export { default as Signup } from "./signup/SignUp";
 export { default as RoomPage } from "./room/RoomPage";

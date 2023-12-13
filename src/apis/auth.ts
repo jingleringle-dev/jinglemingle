@@ -2,9 +2,12 @@ import { ax } from "./axios";
 
 import type {
   SignupType,
+  changePasswordType,
   kakaoLoginType,
   loginType,
+  postVerificationType,
   selectRoomType,
+  sendVerifyEmailType,
 } from "types";
 
 export const signupAPI = async (req: SignupType) => {
@@ -38,6 +41,26 @@ export const selectRoomAPI = async (req: selectRoomType) => {
 
 export const kakaoLoginAPI = async (req: kakaoLoginType) => {
   const data = await ax.get(`/kakao/callback`, { params: req });
+
+  return data;
+};
+
+export const sendVerifyEmailAPI = async (req: sendVerifyEmailType) => {
+  const data = await ax.post(`/users/password/email?username=${req.username}`);
+
+  return data;
+};
+
+export const checkAuthcodeAPI = async (req: postVerificationType) => {
+  const data = await ax.post(
+    `/users/password/verification?username=${req.username}&authCode=${req.authCode}`
+  );
+
+  return data;
+};
+
+export const passwordChangeAPI = async (req: changePasswordType) => {
+  const { data } = await ax.patch("/users/password", req.body);
 
   return data;
 };

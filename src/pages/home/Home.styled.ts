@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const HomWrapper = styled.div`
+import { homeBg01Img } from "assets";
+
+export const HomeWrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     display: flex;
@@ -12,19 +14,7 @@ export const HomWrapper = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("public/bg_01.png");
-
-    & > a:last-of-type {
-      margin-bottom: 4em;
-    }
-  `}
-`;
-
-export const Title = styled.h2`
-  ${({ theme }) => css`
-    margin-bottom: 1.2em;
-    font-size: 2em;
-    color: ${theme.colors.main_brown};
+    background-image: url(${homeBg01Img});
   `}
 `;
 
@@ -33,10 +23,20 @@ export const LoginLink = styled(Link)`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 20.5em;
-    height: 3em;
+    width: 250px;
+    height: 36px;
     margin-bottom: 10px;
     background-color: ${theme.colors.main_beige};
-    color: ${theme.colors.main_kaki};
+    color: ${theme.colors.main_brown};
+  `}
+`;
+
+export const KakaoLoginBtn = styled.button`
+  ${({ theme }) => css`
+    width: 250px;
+    height: 36px;
+    margin-bottom: 40px;
+    background-color: ${theme.colors.yellow};
+    color: ${theme.colors.main_brown};
   `}
 `;

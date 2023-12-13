@@ -1,12 +1,23 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 
-import { kakaoLoginAPI, loginAPI, selectRoomAPI, signupAPI } from "apis";
+import {
+  checkAuthcodeAPI,
+  kakaoLoginAPI,
+  loginAPI,
+  passwordChangeAPI,
+  selectRoomAPI,
+  sendVerifyEmailAPI,
+  signupAPI,
+} from "apis";
 import { cookies, setCookies } from "utils";
 import type {
   SignupType,
+  changePasswordType,
   kakaoLoginType,
   loginType,
+  postVerificationType,
   selectRoomType,
+  sendVerifyEmailType,
 } from "types";
 
 export const useSignup = () => {
@@ -49,5 +60,30 @@ export const useKaKaoLogin = (req: kakaoLoginType) => {
 export const useSelectRoom = () => {
   return useMutation({
     mutationFn: (req: selectRoomType) => selectRoomAPI(req),
+  });
+};
+
+export const useSendVerifyEmail = () => {
+  return useMutation({
+    mutationFn: (req: sendVerifyEmailType) => sendVerifyEmailAPI(req),
+  });
+};
+
+export const usePostAuthcodeCheck = () => {
+  return useMutation({
+    mutationFn: (req: postVerificationType) => checkAuthcodeAPI(req),
+  });
+};
+
+export const usePasswordChange = () => {
+  return useMutation({
+    mutationFn: (req: changePasswordType) => passwordChangeAPI(req),
+    onSuccess: (res) => {
+      setCookies("COOKIES", res.headers);
+    },
+    onError: (err: any) => {
+      //NOTE: 타입 수정 예정
+      console.log(err.response.data.message);
+    },
   });
 };

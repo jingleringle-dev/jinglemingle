@@ -10,20 +10,23 @@ const GlobalStyles = createGlobalStyle`
     }
     *{
         box-sizing: border-box;
+        font-family: "UhBeeZZIBA-Regular", sans-serif;
+
     }
     html, body, div, span, h1, h2, h3, h4, h5, h6, p, 
-    a, dl, dt, dd, ol, ul, li, form, label, table{
+    a, dl, dt, dd, ol, ul, li, form, label, table, button{
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 16px;
-        font-family: "SUITE-Regular", sans-serif;;
+        font-size: 1em;
+        font-family: "UhBeeZZIBA-Regular", sans-serif;
         vertical-align: baseline;
 
 
     }
     body{
         line-height: 1;
+
       
     }
     ol, ul{
@@ -35,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
         cursor: pointer;
     }
     input{
-        outline: none;   
+        outline: none;
     }
  
 `;

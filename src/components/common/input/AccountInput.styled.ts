@@ -7,10 +7,11 @@ export const InputWrapper = styled.div<{ $hasError?: boolean }>`
     flex-direction: column;
     justify-content: center;
     row-gap: 5px;
-    margin-bottom: ${$hasError ? "12px" : "7px"};
+    margin-bottom: ${$hasError ? "5px" : "7px"};
+    padding: 5px 0;
 
     & > input {
-      width: 180px;
+      width: 250px;
       height: 36px;
       padding: 0 4px 0 7px;
       border: ${$hasError && `1px solid ${theme.colors.main_red}`};
@@ -21,13 +22,19 @@ export const InputWrapper = styled.div<{ $hasError?: boolean }>`
       color: ${$hasError && theme.colors.main_red};
       font-size: 0.7em;
     }
+  `}
+`;
 
-    & > button {
-      position: absolute;
-      right: 7px;
-      top: 10px;
-      width: fit-content;
-    }
+export const Button = styled.button`
+  position: absolute;
+  right: 7px;
+  top: 32px;
+  width: fit-content;
+`;
+
+export const Label = styled.p`
+  ${({ theme }) => css`
+    font-size: 0.8em;
   `}
 `;
 

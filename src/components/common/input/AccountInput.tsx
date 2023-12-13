@@ -7,6 +7,7 @@ import * as S from "./AccountInput.styled";
 interface AccountInputProps {
   className?: string;
   type?: string;
+  label?: string;
   placeholder?: string;
   disabled?: boolean;
   maxLength?: number;
@@ -18,6 +19,7 @@ interface AccountInputProps {
 const AccountInput = ({
   className,
   type,
+  label,
   placeholder,
   maxLength,
   disabled,
@@ -29,6 +31,7 @@ const AccountInput = ({
 
   return (
     <S.InputWrapper $hasError={$hasError}>
+      <S.Label>{label}</S.Label>
       <S.Input
         className={className}
         type={type !== "password" ? type : showPaasowrd ? "text" : "password"}
@@ -40,9 +43,9 @@ const AccountInput = ({
         {...register}
       />
       {type === "password" && (
-        <button type="button" onClick={() => setShowPassword(!showPaasowrd)}>
+        <S.Button type="button" onClick={() => setShowPassword(!showPaasowrd)}>
           {showPaasowrd ? <OpenLockIcon /> : <LockIcon />}
-        </button>
+        </S.Button>
       )}
       {errorMsg && <span>{errorMsg}</span>}
     </S.InputWrapper>

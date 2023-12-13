@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { homeBg01Img } from "assets";
+
 export const PublicLayout = styled.section`
   ${({ theme }) => css`
     display: flex;
@@ -13,7 +15,7 @@ export const PublicLayout = styled.section`
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url("public/bg_01.png");
+    background-image: url(${homeBg01Img});
 
     form,
     h2,

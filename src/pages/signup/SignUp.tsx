@@ -45,26 +45,26 @@ const Signup = () => {
 
   return (
     <form onSubmit={handleSubmit(handleSignUp)}>
-      <S.Title>타이틀!!!!!</S.Title>
+      <S.Title>징글 밍글</S.Title>
       <S.ContentWrapper>
-        <p>이메일</p>
         <AccountInput
+          label="이메일"
           $hasError={!!errors.email?.message}
           errorMsg={errors.email?.message}
           register={register("email", { required: "이메일을 입력해주세요" })}
         />
       </S.ContentWrapper>
       <S.ContentWrapper>
-        <p>닉네임</p>
         <AccountInput
+          label="닉네임"
           $hasError={!!errors.nickname?.message}
           errorMsg={errors.nickname?.message}
           register={register("nickname", { required: "닉네임을 작성해주세요" })}
         />
       </S.ContentWrapper>
       <S.ContentWrapper>
-        <p>비밀번호</p>
         <AccountInput
+          label="비밀번호"
           type="password"
           $hasError={!!errors.password?.message}
           errorMsg={errors.password?.message}
@@ -74,8 +74,8 @@ const Signup = () => {
         />
       </S.ContentWrapper>
       <S.ContentWrapper>
-        <p>비밀번호 확인</p>
         <AccountInput
+          label="비밀번호 확인"
           type="password"
           $hasError={!!errors.passwordCheck?.message}
           errorMsg={errors.passwordCheck?.message}

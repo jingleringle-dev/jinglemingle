@@ -18,3 +18,29 @@ export interface selectRoomType {
 export interface kakaoLoginType {
   code: string;
 }
+
+export interface changePasswordType {
+  body: {
+    username: string;
+    authCode: string;
+    password: string;
+    passwordCheck: string;
+  };
+}
+
+export interface changePasswordForm {
+  username: string;
+  authCode: string;
+  password: string;
+  passwordCheck: string;
+  authCodeCheck: boolean;
+}
+
+export interface sendVerifyEmailType {
+  username: string;
+}
+
+export interface postVerificationType {
+  username: string;
+  authCode: string;
+}

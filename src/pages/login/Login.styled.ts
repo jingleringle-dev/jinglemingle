@@ -3,9 +3,9 @@ import styled, { css } from "styled-components";
 
 export const Title = styled.h2`
   ${({ theme }) => css`
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     color: ${theme.colors.main_brown};
-    font-size: 2em;
+    font-size: 3em;
     text-align: center;
   `}
 `;
@@ -32,7 +32,7 @@ export const ContentWrapper = styled.div`
 
 export const LoginBtn = styled.button`
   ${({ theme }) => css`
-    width: 280px;
+    width: 250px;
     height: 36px;
     margin-bottom: 10px;
     background-color: ${theme.colors.main_red};
@@ -45,21 +45,15 @@ export const LoginBtn = styled.button`
   `}
 `;
 
-export const KakaoLoginBtn = styled.button`
-  ${({ theme }) => css`
-    width: 280px;
-    height: 36px;
-    margin-bottom: 10px;
-    background-color: ${theme.colors.yellow};
-    color: ${theme.colors.font_black_01};
-  `}
-`;
-
 export const SignupLink = styled(Link)`
   margin-top: 20px;
   font-size: 0.8em;
   text-align: center;
   text-decoration: underline;
+
+  &:last-of-type {
+    margin-top: 14px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`

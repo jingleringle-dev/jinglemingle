@@ -43,3 +43,11 @@
   font-weight: 900;
   src: url("./SUIT-Heavy.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "UhBeeZZIBA-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/UhBeeZZIBA-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
