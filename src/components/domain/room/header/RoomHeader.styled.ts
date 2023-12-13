@@ -16,3 +16,18 @@ export const Header = styled.header`
     width: 768px;
   }
 `;
+
+export const IconPosition = styled.div`
+  position: absolute;
+  right: 20px;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  z-index: 888;
+`;

@@ -45,6 +45,9 @@ export const kakaoLoginAPI = async (req: kakaoLoginType) => {
   return data;
 };
 
+export const changeNicknameAPI = async (req: string) => {
+  const data = await ax.patch(`/users/nickname?nickname=${req}`);
+
 export const sendVerifyEmailAPI = async (req: sendVerifyEmailType) => {
   const data = await ax.post(`/users/password/email?username=${req.username}`);
 

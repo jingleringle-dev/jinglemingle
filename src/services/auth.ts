@@ -1,6 +1,7 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 import {
+  changeNicknameAPI,
   checkAuthcodeAPI,
   kakaoLoginAPI,
   loginAPI,
@@ -62,6 +63,13 @@ export const useSelectRoom = () => {
     mutationFn: (req: selectRoomType) => selectRoomAPI(req),
   });
 };
+
+export const useChangeNickname = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (req: string) => changeNicknameAPI(req),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["messageList"] });
 
 export const useSendVerifyEmail = () => {
   return useMutation({
