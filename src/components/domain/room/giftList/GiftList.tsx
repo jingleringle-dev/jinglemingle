@@ -14,8 +14,13 @@ const GIFT_BOX_WIDTH = 105;
 interface Props {
   dateChecker: (date: string) => void;
   roomNameChanger: (roomOwner: string) => void;
+  giftCount: (count: number) => void;
 }
-export default function GiftList({ dateChecker, roomNameChanger }: Props) {
+export default function GiftList({
+  dateChecker,
+  roomNameChanger,
+  giftCount,
+}: Props) {
   const [page, setPage] = useState(DEFAULT_PAGE);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [messageData, setMessageData] = useState<SimpleMessageType>();
@@ -34,6 +39,7 @@ export default function GiftList({ dateChecker, roomNameChanger }: Props) {
     if (data) {
       dateChecker(data.timestamp);
       roomNameChanger(data.data.roomOwner);
+      giftCount(data.data.messages.totalElements);
     }
   }, [data]);
 

@@ -14,6 +14,7 @@ export default function Room() {
   const [isDDay, setIsDDay] = useState(true);
   const [isToggleOn, setIsToggleOn] = useState(false);
   const [nickname, setNickname] = useState(INITIAL_HEADER);
+  const [count, setCount] = useState(0);
 
   const { authCheck } = useCheckRoom();
   const { id } = useParams();
@@ -25,11 +26,16 @@ export default function Room() {
     setNickname(roomOwner);
   };
 
+  const giftCount = (count: number) => {
+    setCount(count);
+  };
+
   return (
     <RoomLayout opacity>
       <RoomHeader nickname={nickname} />
       <S.Body>
         <TopMenu
+          count={count}
           isDDay={isDDay}
           toggle={toggleUI}
           isMyRoom={authCheck === "myRoom"}
@@ -40,6 +46,7 @@ export default function Room() {
           <GiftList
             dateChecker={(date) => dateChecker(date, setIsDDay)}
             roomNameChanger={roomNameChanger}
+            giftCount={giftCount}
           />
         )}
       </S.Body>

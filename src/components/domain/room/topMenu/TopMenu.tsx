@@ -10,16 +10,17 @@ interface Props {
   isDDay: boolean;
   toggle: React.JSX.Element;
   isMyRoom: boolean;
+  count: number;
 }
 // !isDDay &&
 
-export default function TopMenu({ isDDay, toggle, isMyRoom }: Props) {
+export default function TopMenu({ isDDay, toggle, isMyRoom, count }: Props) {
   const [nicknameModal, setNicknameModal] = useState(false);
   const navigation = useNavigate();
 
   return (
     <S.Container>
-      {!isDDay && <GiftCount />}
+      {!isDDay && <GiftCount count={count} />}
 
       {isMyRoom && !isDDay && (
         <S.Wrapper>
